@@ -1,6 +1,7 @@
 package com.business.rules;
 
 import com.business.dto.Payment;
+import com.business.dto.TriggerEmail;
 import com.business.utility.Constants.NonPhysicalProductType;
 import com.business.utility.Constants.PhysicalProductType;
 
@@ -12,7 +13,7 @@ public class Rule5<I, O> implements BaseRuleInterface<Payment, Payment> {
 		input.setProductType(Boolean.FALSE);
 		input.setPhysicalProductType(PhysicalProductType.NA);
 		input.setNonPhysicalProductType(NonPhysicalProductType.UpgradeMembership);
-		new DuplicatePackagingSlip();
+		new TriggerEmail();
 		return input;
 	}
 

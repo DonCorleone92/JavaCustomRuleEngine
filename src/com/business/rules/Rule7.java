@@ -1,11 +1,11 @@
 package com.business.rules;
 
-import com.business.dto.DuplicatePackagingSlip;
+import com.business.dto.GenerateCommision;
 import com.business.dto.Payment;
 import com.business.utility.Constants.NonPhysicalProductType;
 import com.business.utility.Constants.PhysicalProductType;
 
-public class Rule2<I, O> implements BaseRuleInterface<Payment, Payment> {
+public class Rule7<I, O> implements BaseRuleInterface<Payment, Payment> {
 
 	@Override
 	public Payment transform(Payment input) {
@@ -13,7 +13,7 @@ public class Rule2<I, O> implements BaseRuleInterface<Payment, Payment> {
 		input.setProductType(Boolean.TRUE);
 		input.setPhysicalProductType(PhysicalProductType.Book);
 		input.setNonPhysicalProductType(NonPhysicalProductType.NA);
-		new DuplicatePackagingSlip();
+		new GenerateCommision();
 		return input;
 	}
 
