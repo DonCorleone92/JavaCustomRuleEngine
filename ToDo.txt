@@ -1,0 +1,5 @@
+### TO DO List ###
+
+1. Create a custom exception class instead of throwing a generic RunTime
+   exception.
+2. Create a mutually exclusive rule wrapper.    	
