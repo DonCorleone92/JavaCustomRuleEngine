@@ -12,7 +12,6 @@ public class Rule5<I, O> implements BaseRuleInterface<Payment, Payment> {
 
 		input.setProductType(Boolean.FALSE);
 		input.setPhysicalProductType(PhysicalProductType.NA);
-		input.setNonPhysicalProductType(NonPhysicalProductType.UpgradeMembership);
 		new TriggerEmail();
 		return input;
 	}
@@ -20,8 +19,10 @@ public class Rule5<I, O> implements BaseRuleInterface<Payment, Payment> {
 	@Override
 	public boolean isCriteriaMatched(Payment input) {
 
-		return ((input.getProductType() == false) && input.getPhysicalProductType().equals(PhysicalProductType.NA)
-				&& input.getNonPhysicalProductType().equals(NonPhysicalProductType.UpgradeMembership));
+		return ((input.getProductType() == false)
+				&& input.getPhysicalProductType().equals(PhysicalProductType.NA)
+				&& (input.getNonPhysicalProductType().equals(NonPhysicalProductType.UpgradeMembership)
+						|| input.getNonPhysicalProductType().equals(NonPhysicalProductType.Membership)));
 	}
 
 }

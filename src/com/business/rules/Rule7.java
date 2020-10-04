@@ -11,7 +11,6 @@ public class Rule7<I, O> implements BaseRuleInterface<Payment, Payment> {
 	public Payment transform(Payment input) {
 
 		input.setProductType(Boolean.TRUE);
-		input.setPhysicalProductType(PhysicalProductType.Book);
 		input.setNonPhysicalProductType(NonPhysicalProductType.NA);
 		new GenerateCommision();
 		return input;
@@ -20,7 +19,9 @@ public class Rule7<I, O> implements BaseRuleInterface<Payment, Payment> {
 	@Override
 	public boolean isCriteriaMatched(Payment input) {
 
-		return ((input.getProductType() == true) && input.getPhysicalProductType().equals(PhysicalProductType.Book)
+		return ((input.getProductType() == true)
+				&& (input.getPhysicalProductType().equals(PhysicalProductType.Book)
+						|| input.getPhysicalProductType().equals(PhysicalProductType.NA))
 				&& input.getNonPhysicalProductType().equals(NonPhysicalProductType.NA));
 	}
 
