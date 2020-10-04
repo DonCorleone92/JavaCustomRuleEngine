@@ -38,11 +38,10 @@ public class Rule2Test {
 		Payment testPayment = new Payment(Boolean.FALSE, PhysicalProductType.Book, NonPhysicalProductType.NA);
 		ruleEngine.checkMyRule(testPayment);
 	}
-	
+
 	@Test(expected = RuntimeException.class)
 	public void negativeTestPhysicalProductTypeIsFalse() {
-		Payment testPayment = new Payment(Boolean.TRUE, PhysicalProductType.NonBook,
-				NonPhysicalProductType.NA);
+		Payment testPayment = new Payment(Boolean.TRUE, PhysicalProductType.NonBook, NonPhysicalProductType.NA);
 		ruleEngine.checkMyRule(testPayment);
 	}
 
