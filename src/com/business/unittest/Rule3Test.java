@@ -15,7 +15,7 @@ import com.business.rules.Rule7;
 import com.business.utility.Constants.NonPhysicalProductType;
 import com.business.utility.Constants.PhysicalProductType;
 
-public class Rule1Test {
+public class Rule3Test {
 
 	private static RuleEngine ruleEngine = new RuleEngine();
 
@@ -32,22 +32,22 @@ public class Rule1Test {
 
 	@Test
 	public void positiveTest() {
-		Payment testPayment = new Payment(Boolean.TRUE, PhysicalProductType.NA,
-				NonPhysicalProductType.NA);
+		Payment testPayment = new Payment(Boolean.FALSE, PhysicalProductType.NA,
+				NonPhysicalProductType.Membership);
 		ruleEngine.checkMyRule(testPayment);
 	}
 
 	@Test(expected = RuntimeException.class)
 	public void negativeTestProductTypeIsFalse() {
-		Payment testPayment = new Payment(Boolean.FALSE, PhysicalProductType.NA,
-				NonPhysicalProductType.NA);
+		Payment testPayment = new Payment(Boolean.TRUE, PhysicalProductType.NA,
+				NonPhysicalProductType.Membership);
 		ruleEngine.checkMyRule(testPayment);
 	}
 	
 	@Test(expected = RuntimeException.class)
 	public void negativeTestPhysicalProductTypeIsFalse() {
-		Payment testPayment = new Payment(Boolean.TRUE, PhysicalProductType.Book,
-				NonPhysicalProductType.NA);
+		Payment testPayment = new Payment(Boolean.TRUE, PhysicalProductType.NonBook,
+				NonPhysicalProductType.Membership);
 		ruleEngine.checkMyRule(testPayment);
 	}
 	
