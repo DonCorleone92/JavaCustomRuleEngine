@@ -19,8 +19,7 @@ public class Rule1<I, O> implements BaseRuleInterface<Payment, Payment> {
 
 	@Override
 	public boolean isCriteriaMatched(Payment input) {
-		return ((input.getProductType() == true)
-				&& input.getPhysicalProductType().equals(PhysicalProductType.NA)
+		return ((input.getProductType() == true) && input.getPhysicalProductType().equals(PhysicalProductType.NA)
 				&& input.getNonPhysicalProductType().equals(NonPhysicalProductType.NA));
 	}
 

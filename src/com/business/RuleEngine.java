@@ -1,6 +1,5 @@
 package com.business;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,11 +21,11 @@ public class RuleEngine {
 
 	public Payment checkMyRule(Payment input) {
 
-		return rules.stream()
+		return rules
+				.stream()
 				.filter(myrule -> myrule.isCriteriaMatched(input))
 				.map(myrule -> myrule.transform(input))
-				.findAny()
-				.orElseThrow(() -> new RuntimeException("No Matching rule found"));
+				.findAny().orElseThrow(() -> new RuntimeException("No Matching rule found"));
 	}
 
 }
